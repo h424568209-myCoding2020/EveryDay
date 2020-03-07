@@ -22,14 +22,21 @@ public class Main2 {
     }
 
     private static boolean judge(String password) {
-        for(int i = 0 ; i < password.length()-3 ; i++){
-            String s = password.substring(i+3,password.length());
-            System.out.println(password.substring(i,i+3));
-            if(s.contains(password.substring(i,i+3))){
+        for(int i =0  ; i < password.length()-2 ; i++){
+            String substr1 = password.substring(i,i+3);
+            if(password.substring(i+1).contains(substr1)){
                 return false;
             }
         }
-        return true;
+        return  true;
+//        for(int i = 0 ; i < password.length()-3 ; i++){
+//            String s = password.substring(i+3,password.length());
+//            System.out.println(password.substring(i,i+3));
+//            if(s.contains(password.substring(i,i+3))){
+//                return false;
+//            }
+//        }
+//        return true;
     }
 
     private static boolean judgepiece(String password) {
@@ -68,7 +75,7 @@ public class Main2 {
     }
 
     private static boolean judgelen(String password) {
-        if(password.length() < 8){
+        if(password.length() <= 8 || password == null){
             return false;
         }
         return true;
