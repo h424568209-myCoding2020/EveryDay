@@ -2,6 +2,7 @@ package day5;
 
 import java.util.Scanner;
 
+//年会抽奖
 // 抽奖，抽不中自己的概率
 public class Main2 {
     public static void main(String[] args) {
