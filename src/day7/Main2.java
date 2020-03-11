@@ -9,7 +9,7 @@
                 String path = scanner.next();
                 int n = scanner.nextInt();
                 int nameid = path.lastIndexOf('\\');
-                String name = path.substring(nameid+1);
+                String name = nameid ==-1?path : path.substring(nameid+1);
                 LinkedHashMap<String,Integer> map = new LinkedHashMap<>();
                 String k = name+" "+n;
                 if(map.containsValue(k)){
@@ -17,20 +17,17 @@
                 }else{
                     map.put(k,1);
                 }
-                List<Map.Entry<String,Integer>> list = new LinkedList<>(map.entrySet());
+                List<Map.Entry<String,Integer>> list = new LinkedList<Map.Entry<String,Integer>>(map.entrySet());
                 list.sort(new Comparator<Map.Entry<String, Integer>>() {
                     @Override
                     public int compare(Map.Entry<String, Integer> o1, Map.Entry<String, Integer> o2) {
-                        if(o2.getValue()  - o1.getValue() == 0){
-                            return  o1.getValue()  - o2.getValue();
-                        }
                         return o2.getValue() - o1.getValue();
                     }
                 });
                 int count = 0;
                 for(Map.Entry<String,Integer> m : list){
                     count++;
-                    if(count >8){
+                    if(count >=8){
                         break;
                     }
                     String []str = m.getKey().split(" ");
