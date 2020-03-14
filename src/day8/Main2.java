@@ -6,30 +6,54 @@ public class Main2 {
     public  static int countNumberOf2s(int n) {
         // write code here
 
-        int count = 0 ;
-        int factor = 1;
-        int low = 0;
-        int cur = 0;
-        int high = 0;
-        while(n/factor !=0){
-            low = n-(n/factor) *factor;
-            cur = (n/factor) %10;
-            high = n/(factor*10);
-            switch (cur){
-                case 0:
-                case 1:
-                    cur+=high * factor;
+        int count =  0;
+        int i ;
+        if(n < 2 ){
+            return 0;
+        }
+        if(n <= 10){
+            return  1;
+        }
+        for(int j = 2 ; j <= n ; j++){
+            i = j ;
+            while(i >0){
+                if(i%10 ==2) {
+                    count++;
+                }
+                i/=10;
+                if( i== 0){
                     break;
-                case 2:
-                    count += high * factor+low  +1;
-                    break;
-                    default:
-                        count+=(high +1 ) *factor;
-                        break;
+                }
             }
-            factor *= 10;
         }
         return count;
+//        int count = 0 ;
+//        int factor = 1;
+//        int low = 0;
+//        int cur = 0;
+//        int high = 0;
+//        while(n/factor !=0){
+//            low = n-(n/factor) *factor;
+//            cur = (n/factor) %10;
+//            high = n/(factor*10);
+//            switch (cur){
+//                case 0:
+//                case 1:
+//                    cur+=high * factor;
+//                    break;
+//                case 2:
+//                    count += high * factor+low  +1;
+//                    break;
+//                    default:
+//                        count+=(high +1 ) *factor;
+//                        break;
+//            }
+//            factor *= 10;
+//        }
+//        return count;
+
+
+
 //
 //        int count = 0, i;
 //        if (n < 2) return 0;
