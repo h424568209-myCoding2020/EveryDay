@@ -7,6 +7,7 @@ import java.util.Scanner;
  * 回文串 -- 一串字符加一个字符是否是回文
  */
 public class Main2 {
+    /*
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         while(scanner.hasNext()){
@@ -43,5 +44,21 @@ public class Main2 {
                 System.out.println("No");
             }
         }
+    }
+    */
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        while(scanner.hasNext()){
+            String line = scanner.nextLine();
+            if(isPalindrome(line.substring(1))||isPalindrome(line.substring(0,line.length()-1))||isPalindrome(line)){
+                System.out.println("Yes");
+            }else {
+                System.out.println("No");
+            }
+        }
+    }
+
+    private static boolean isPalindrome(String substring) {
+        return new StringBuffer(substring).reverse().toString().equals(substring);
     }
 }
